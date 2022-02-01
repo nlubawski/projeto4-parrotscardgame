@@ -63,3 +63,28 @@ main{
     background-size: 100px;
     background-repeat: no-repeat;
 }
+
+
+/*--------------------VERSAO MOBILE ------------------------------------------*/
+
+@media (max-width: 565px){
+    header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    header strong{
+        font-size: 36px;
+        width: 312px;
+        height: 63px;
+        text-align: center;
+        margin-bottom: 47px;
+        line-height: 42px;
+        text-align: center;
+        letter-spacing: -0.004em
+
+    }
+
+}
