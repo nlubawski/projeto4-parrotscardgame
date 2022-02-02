@@ -28,8 +28,22 @@ function gerarCartas(){
         listaGeradora.push(lista[i])
     }
 
-    console.log(listaGeradora.sort(embaralhar))
+    return listaGeradora.sort(embaralhar)
 }
 
+function cartasNaMesa(){
+    const listaGeradora = gerarCartas()
+    const secao = document.querySelector('.container')
+    
+    for(let i = 0; i < listaGeradora.length; i++){
+        secao.innerHTML +=  `   
+            <section class="card flip">
+                <div class="card__front"></div>
+                <div class="card__back ${listaGeradora[i]}"></div>
+            </section>
+           `
+}
+
+}
 jogar()
-gerarCartas()
+cartasNaMesa()
