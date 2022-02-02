@@ -8,3 +8,28 @@ function jogar(){
 
     alert(quantidadeCartas)
 }
+
+function embaralhar() { 
+	return Math.random() - 0.5; 
+}
+
+const itensBack = ['back1','back2','back3','back4','back5','back6','back7']
+function gerarCartas(){
+    const lista = []
+    const listaGeradora = []
+    itensBack.sort(embaralhar)
+    let i = 0
+    while(i < quantidadeCartas/2){
+        lista.push(itensBack[i])
+        i++
+    }
+    for(let i = 0; i < lista.length; i++){
+        listaGeradora.push(lista[i])
+        listaGeradora.push(lista[i])
+    }
+
+    console.log(listaGeradora.sort(embaralhar))
+}
+
+jogar()
+gerarCartas()
