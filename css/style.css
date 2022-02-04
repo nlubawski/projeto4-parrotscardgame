@@ -51,12 +51,14 @@ main{
     align-items: center;
     margin-right: 44px;
     margin-bottom: 34px;
+    transform-style: preserve-3d;
+    position: relative;
+    
     
 }
 
 .flip{
-    transform-style: preserve-3d;
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
 }
 
 .card__front{
@@ -66,56 +68,72 @@ main{
     background: url(../img/front.png);
     background-size: 100px;
     background-repeat: no-repeat;
-    transform: rotateY(180deg);
+    transform:rotateY(180deg) ;
     position: absolute;
-    display: none;
-    
 }
 
 .card__back{
-    
     width: 100px;
     height: 100px;
+    background: url(../img/front.png);
     background-size: 100px;
     background-repeat: no-repeat;
-    position: absolute;
+    transform: rotateY(90deg);
+    }
+
+
+.turn__front {
+        transform: rotateY(90deg);
 }
+.turn__back{
+    transform: rotateY(0deg);
+
+}
+
+
 
 /*---------------back de todas cartas---------------*/
 
 .back1{
     background: url(../img/bobrossparrot.gif);
-
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back2{
     background: url(../img/explodyparrot.gif);
-
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back3{
-    background: url(../img/fiestaparrot.gif);
-
+    background: url(../img/fiestaparrot.gif); 
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back4{
-    background: url(../img/metalparrot.gif);
-
+    background: url(../img/metalparrot.gif);    
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back5{
     background: url(../img/revertitparrot.gif);
-
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back6{
     background: url(../img/tripletsparrot.gif);
-
+    background-size: 100px;
+    background-repeat: no-repeat;
 }
 
 .back7{
     background: url(../img/unicornparrot.gif);
-
+    background-size: 100px;
+    background-repeat: no-repeat; 
 }
 
 /*--------------------VERSAO MOBILE ------------------------------------------*/

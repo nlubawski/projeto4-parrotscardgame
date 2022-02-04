@@ -37,13 +37,19 @@ function cartasNaMesa(){
     
     for(let i = 0; i < listaGeradora.length; i++){
         secao.innerHTML +=  `   
-            <section class="card flip">
+            <section class="card " onclick="virarCartas(this)">
                 <div class="card__front"></div>
                 <div class="card__back ${listaGeradora[i]}"></div>
             </section>
-           `
+        `
+    }
 }
 
+
+function virarCartas(carta) {
+    carta.querySelector(".card__front").classList.toggle("turn__front");
+    carta.querySelector(".card__back").classList.toggle("turn__back");
 }
+
 jogar()
 cartasNaMesa()
