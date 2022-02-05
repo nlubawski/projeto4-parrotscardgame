@@ -81,15 +81,16 @@ main{
     transform: rotateY(90deg);
     }
 
-
 .turn__front {
         transform: rotateY(90deg);
 }
 .turn__back{
     transform: rotateY(0deg);
-
 }
 
+.fixed{ 
+    pointer-events: none;
+}
 
 
 /*---------------back de todas cartas---------------*/
