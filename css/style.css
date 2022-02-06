@@ -52,6 +52,7 @@ main{
     margin-right: 44px;
     margin-bottom: 34px;
     transform-style: preserve-3d;
+    
     position: relative;
     
     
@@ -70,6 +71,7 @@ main{
     background-repeat: no-repeat;
     transform:rotateY(180deg) ;
     position: absolute;
+    
 }
 
 .card__back{

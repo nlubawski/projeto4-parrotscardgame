@@ -5,6 +5,7 @@ let acertos = null
 let primeiraCarta = null
 let segundaCarta = null
 let jogadas = 0
+let bloqueiaCartas = false
 
 
 function jogar(){
@@ -54,6 +55,10 @@ function cartasNaMesa(){
 }
 
 function virarCartas(carta) {
+    if (bloqueiaCartas === true){
+        return false
+
+    }
     carta.querySelector(".card__front").classList.toggle("turn__front")
     carta.querySelector(".card__back").classList.toggle("turn__back")
     
@@ -67,6 +72,7 @@ function virarCartas(carta) {
 }
 
 function correspondencia(){
+    bloqueiaCartas = true
     let ehCorrespondente = primeiraCarta.dataset.card === segundaCarta.dataset.card
 
     if (!ehCorrespondente){
@@ -75,6 +81,7 @@ function correspondencia(){
             desvirar(segundaCarta) 
             primeiraCarta = null
             segundaCarta = null
+            bloqueiaCartas= false
         }, 2000)
         
         
@@ -85,6 +92,7 @@ function correspondencia(){
 
         primeiraCarta = null
         segundaCarta = null
+        bloqueiaCartas = false
         jogadas +=2
         acertos -= 1
         conferirSeGanhou()
