@@ -111,7 +111,47 @@ function desvirar(carta){
 function conferirSeGanhou(){
     if (acertos === 0){
         setTimeout( () => {alert(`Você ganhou em ${jogadas} jogadas!`)}, 1000)
+        setTimeout( () => 
+            {let jogarNovamente = prompt('Quer jogar novamente? Se quiser digite sim')
+            if (jogarNovamente.toUpperCase() === 'SIM'){
+                reiniciarJogo()
+            }
+
+        }, 2000)
+
     }
+}
+
+function reiniciarJogo(){
+    // const resetarCartas  = document.querySelectorAll(".fixed")
+    // for (let i = 0; i < resetarCartas.length; i++){
+    //     resetarCartas[i].classList.remove('fixed')
+
+    // }
+
+    const secaoResetar = document.querySelector('.container')
+    secaoResetar.innerHTML = ""
+    
+    // for(let i = 0; i < listaGeradora.length; i++){
+    //     secao.innerHTML +=  `   
+    //         <section class="card " onclick="virarCartas(this)" data-card="${listaGeradora[i]} data-identifier="card"">
+    //             <div class="card__front" data-identifier="front-face"></div>
+    //             <div class="card__back ${listaGeradora[i]}" data-identifier="back-face"></div>
+    //         </section>
+    //     `
+    // }
+
+
+
+    quantidadeCartas = null;
+    let conferirCartas = []
+    acertos = null
+    primeiraCarta = null
+    segundaCarta = null
+    jogadas = 0
+    bloqueiaCartas = false
+    jogar()
+    cartasNaMesa()
 }
 
 jogar()
