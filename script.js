@@ -4,6 +4,7 @@ let conferirCartas = []
 let acertos = null
 let primeiraCarta = null
 let segundaCarta = null
+let jogadas = 0
 
 
 function jogar(){
@@ -55,71 +56,54 @@ function cartasNaMesa(){
 function virarCartas(carta) {
     carta.querySelector(".card__front").classList.toggle("turn__front")
     carta.querySelector(".card__back").classList.toggle("turn__back")
-    carta.classList.add('fixed')
-
+    
     if(!primeiraCarta){
         primeiraCarta = carta 
         return false
     }
 
     segundaCarta = carta
-    correspondencia()
+    correspondencia(primeiraCarta, segundaCarta)
 }
 
 function correspondencia(){
     let ehCorrespondente = primeiraCarta.dataset.card === segundaCarta.dataset.card
-    console.log(ehCorrespondente)
+
+    if (!ehCorrespondente){
+        setTimeout(()=>{
+            desvirar(primeiraCarta)
+            desvirar(segundaCarta) 
+            primeiraCarta = null
+            segundaCarta = null
+        }, 2000)
+        
+        
+        jogadas += 2
+    }else{
+        primeiraCarta.classList.add("fixed")
+        segundaCarta.classList.add("fixed")
+
+        primeiraCarta = null
+        segundaCarta = null
+        jogadas +=2
+        acertos -= 1
+        conferirSeGanhou()
+
+    }
 }
 
+function desvirar(carta){
+    const primeiraFrente = carta.querySelector(".card__front")
+    primeiraFrente.classList.remove("turn__front")
 
-
-// function verificaIgualdade(carta){
-    
-//     for(let i=0;i < itensBack.length ;i++){
-//         if (carta.querySelector('.' + itensBack[i]) !== null){
-//             conferirCartas.push(itensBack[i])
-//         }
-//     }
-//     if (conferirCartas.length == 2){
-//         if (conferirCartas[0] !== conferirCartas[1]){
-//             const card1 = document.querySelector(' .'+ conferirCartas[0]).parentNode
-//             card2.classList.remove("fixed")
-            
-//             const card2 = carta.querySelector(' .'+ conferirCartas[1]).parentNode
-//             card2.classList.remove("fixed")
-//             acertos -= 1
-//             //conferirSeGanhou()
-            
-            
-//         }
-//         conferirCartas = []    
-            
-//     }
-    
-//     else{
-//         setTimeout(() => {
-//             let card1 = document.querySelector(' .'+ conferirCartas[0] + '.turn__back')
-//             if (card1 !== null){
-//                 card1 = card1.parentNode
-//                 virarCartas(card1)
-//             }
-//             let card2 = document.querySelector(' .'+ conferirCartas[1] + '.turn__back')
-//             if (card2 !== null){
-//                 card2 = card2.parentNode
-//                 virarCartas(card2)
-//             }
-//         },1000)
-//         //setTimeout(()=>{conferirCartas=[]}, 2000)
-
-
-//     }
-// }
+    const primeiraVerso = carta.querySelector(".card__back")
+    primeiraVerso.classList.remove("turn__back")
+}
 
 function conferirSeGanhou(){
     if (acertos === 0){
-        setTimeout( () => {alert('Você ganhou em X jogadas!')}, 1000)
+        setTimeout( () => {alert(`Você ganhou em ${jogadas} jogadas!`)}, 1000)
     }
-
 }
 
 jogar()
