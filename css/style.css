@@ -38,8 +38,9 @@ main{
     height: 436px;
     margin-left: 122px;
     margin-top: 150px;
-    
 }
+
+/*o efeito virar vai na carta?? eu fui na linha de virar front e back e os efeitos ficaram zoados */
 .card{
     width: 117px;
     height: 146px;
@@ -52,10 +53,7 @@ main{
     margin-right: 44px;
     margin-bottom: 34px;
     transform-style: preserve-3d;
-    
     position: relative;
-    
-    
 }
 
 .flip{
@@ -63,7 +61,6 @@ main{
 }
 
 .card__front{
-    
     width: 100px;
     height: 100px;
     background: url(../img/front.png);
@@ -71,7 +68,6 @@ main{
     background-repeat: no-repeat;
     transform:rotateY(180deg) ;
     position: absolute;
-    
 }
 
 .card__back{
@@ -81,11 +77,12 @@ main{
     background-size: 100px;
     background-repeat: no-repeat;
     transform: rotateY(90deg);
-    }
+}
 
 .turn__front {
-        transform: rotateY(90deg);
+    transform: rotateY(90deg);
 }
+
 .turn__back{
     transform: rotateY(0deg);
 }
@@ -93,9 +90,6 @@ main{
 .fixed{ 
     pointer-events: none;
 }
-
-
-/*---------------back de todas cartas---------------*/
 
 .back1{
     background: url(../img/bobrossparrot.gif);
@@ -139,8 +133,6 @@ main{
     background-repeat: no-repeat; 
 }
 
-/*--------------------VERSAO MOBILE ------------------------------------------*/
-
 @media (max-width: 565px){
     header{
         display: flex;
@@ -158,7 +150,5 @@ main{
         line-height: 42px;
         text-align: center;
         letter-spacing: -0.004em
-
     }
-
 }

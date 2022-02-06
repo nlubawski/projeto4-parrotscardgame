@@ -7,9 +7,7 @@ let segundaCarta = null
 let jogadas = 0
 let bloqueiaCartas = false
 
-
 function jogar(){
-    
     quantidadeCartas = parseInt(prompt("digite um numero par de cartas(entre 4 e 14) para jogar "))  
     while((quantidadeCartas % 2 !== 0) | (quantidadeCartas < 4) | (quantidadeCartas > 14)){
         quantidadeCartas = parseInt(prompt("digite um numero par de cartas(entre 4 e 14) para jogar "))
@@ -21,7 +19,6 @@ function jogar(){
 function embaralhar() { 
 	return Math.random() - 0.5; 
 }
-
 
 function gerarCartas(){
     const lista = []
@@ -36,7 +33,6 @@ function gerarCartas(){
         listaGeradora.push(lista[i])
         listaGeradora.push(lista[i])
     }
-
     return listaGeradora.sort(embaralhar)
 }
 
@@ -57,7 +53,6 @@ function cartasNaMesa(){
 function virarCartas(carta) {
     if (bloqueiaCartas === true){
         return false
-
     }
     carta.querySelector(".card__front").classList.toggle("turn__front")
     carta.querySelector(".card__back").classList.toggle("turn__back")
@@ -66,7 +61,6 @@ function virarCartas(carta) {
         primeiraCarta = carta 
         return false
     }
-
     segundaCarta = carta
     correspondencia(primeiraCarta, segundaCarta)
 }
@@ -74,7 +68,7 @@ function virarCartas(carta) {
 function correspondencia(){
     bloqueiaCartas = true
     let ehCorrespondente = primeiraCarta.dataset.card === segundaCarta.dataset.card
-
+    //porque multipla atribuicao nao funciona? tipo [primeiraCarta,segundaCarta,bloqueiaCartas] = [null, null,false]
     if (!ehCorrespondente){
         setTimeout(()=>{
             desvirar(primeiraCarta)
@@ -82,9 +76,7 @@ function correspondencia(){
             primeiraCarta = null
             segundaCarta = null
             bloqueiaCartas= false
-        }, 2000)
-        
-        
+        }, 2000)  
         jogadas += 2
     }else{
         primeiraCarta.classList.add("fixed")
@@ -96,7 +88,6 @@ function correspondencia(){
         jogadas +=2
         acertos -= 1
         conferirSeGanhou()
-
     }
 }
 
@@ -116,33 +107,13 @@ function conferirSeGanhou(){
             if (jogarNovamente.toUpperCase() === 'SIM'){
                 reiniciarJogo()
             }
-
-        }, 2000)
-
+            }, 2000)
     }
 }
 
 function reiniciarJogo(){
-    // const resetarCartas  = document.querySelectorAll(".fixed")
-    // for (let i = 0; i < resetarCartas.length; i++){
-    //     resetarCartas[i].classList.remove('fixed')
-
-    // }
-
     const secaoResetar = document.querySelector('.container')
     secaoResetar.innerHTML = ""
-    
-    // for(let i = 0; i < listaGeradora.length; i++){
-    //     secao.innerHTML +=  `   
-    //         <section class="card " onclick="virarCartas(this)" data-card="${listaGeradora[i]} data-identifier="card"">
-    //             <div class="card__front" data-identifier="front-face"></div>
-    //             <div class="card__back ${listaGeradora[i]}" data-identifier="back-face"></div>
-    //         </section>
-    //     `
-    // }
-
-
-
     quantidadeCartas = null;
     let conferirCartas = []
     acertos = null
