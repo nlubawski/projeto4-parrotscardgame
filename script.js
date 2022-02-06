@@ -46,9 +46,9 @@ function cartasNaMesa(){
     
     for(let i = 0; i < listaGeradora.length; i++){
         secao.innerHTML +=  `   
-            <section class="card " onclick="virarCartas(this)" data-card="${listaGeradora[i]}">
-                <div class="card__front"></div>
-                <div class="card__back ${listaGeradora[i]}"></div>
+            <section class="card " onclick="virarCartas(this)" data-card="${listaGeradora[i]} data-identifier="card"">
+                <div class="card__front" data-identifier="front-face"></div>
+                <div class="card__back ${listaGeradora[i]}" data-identifier="back-face"></div>
             </section>
         `
     }
