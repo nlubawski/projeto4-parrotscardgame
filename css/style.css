@@ -50,7 +50,6 @@ main{
     align-items: center;
     margin-right: 44px;
     margin-bottom: 34px;
-    transform-style: preserve-3d;
     position: relative;
 }
 
@@ -65,7 +64,7 @@ main{
     background-size: 100px;
     background-repeat: no-repeat;
     transform:rotateY(180deg) ;
-    position: absolute;
+    position: absolute;    
 }
 
 .card__back{
@@ -74,7 +73,7 @@ main{
     background: url(../img/front.png);
     background-size: 100px;
     background-repeat: no-repeat;
-    transform: rotateY(90deg);
+    transform: rotateY(90deg); 
 }
 
 .turn__front {
@@ -126,7 +125,7 @@ main{
 }
 
 .back7{
-    background: url(../img/unicornparrot.gif);
+    background: url(../img/unicornparrot.gif); 
     background-size: 100px;
     background-repeat: no-repeat; 
 }
