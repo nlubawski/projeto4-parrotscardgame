@@ -2,6 +2,8 @@
 
 Site: https://nlubawski.github.io/projeto4-parrotscardgame/
 
+![parrot](https://user-images.githubusercontent.com/73800701/152857175-e95274be-8db7-48a4-9cd8-20e0ec9caa89.png)
+
 # Requisitos
 
 - Geral
