@@ -1,4 +1,4 @@
-let quantidadeCartas = null;
+let quantidadeCartas = null
 const itensBack = ['back1','back2','back3','back4','back5','back6','back7']
 let conferirCartas = []
 let acertos = null
@@ -6,6 +6,8 @@ let primeiraCarta = null
 let segundaCarta = null
 let jogadas = 0
 let bloqueiaCartas = false
+const relogio = document.querySelector(".relogio");
+let intervalo = null;
 
 function jogar(){
     quantidadeCartas = parseInt(prompt("digite um numero par de cartas(entre 4 e 14) para jogar "))  
@@ -48,6 +50,10 @@ function cartasNaMesa(){
             </section>
         `
     }
+
+    intervalo = setInterval(timer, 1000);
+
+
 }
 
 function virarCartas(carta) {
@@ -81,7 +87,6 @@ function correspondencia(){
     }else{
         primeiraCarta.classList.add("fixed")
         segundaCarta.classList.add("fixed")
-
         primeiraCarta = null
         segundaCarta = null
         bloqueiaCartas = false
@@ -107,22 +112,28 @@ function conferirSeGanhou(){
             if (jogarNovamente.toUpperCase() === 'SIM'){
                 reiniciarJogo()
             }
-            }, 2000)
+            }, 1000)
+        clearInterval(intervalo);
     }
 }
 
 function reiniciarJogo(){
     const secaoResetar = document.querySelector('.container')
     secaoResetar.innerHTML = ""
-    quantidadeCartas = null;
+    quantidadeCartas = null
     let conferirCartas = []
     acertos = null
     primeiraCarta = null
     segundaCarta = null
     jogadas = 0
     bloqueiaCartas = false
+    relogio.innerHTML = "0"
     jogar()
     cartasNaMesa()
+}
+
+function timer() {
+    relogio.innerHTML = parseInt(relogio.innerHTML) + 1; 
 }
 
 jogar()
