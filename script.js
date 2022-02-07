@@ -8,9 +8,11 @@ let jogadas = 0
 let bloqueiaCartas = false
 const relogio = document.querySelector(".relogio");
 let intervalo = null;
+let tempoGanhou = null
 
 function jogar(){
     quantidadeCartas = parseInt(prompt("digite um numero par de cartas(entre 4 e 14) para jogar "))  
+
     while((quantidadeCartas % 2 !== 0) | (quantidadeCartas < 4) | (quantidadeCartas > 14)){
         quantidadeCartas = parseInt(prompt("digite um numero par de cartas(entre 4 e 14) para jogar "))
     }
@@ -50,18 +52,17 @@ function cartasNaMesa(){
             </section>
         `
     }
-
     intervalo = setInterval(timer, 1000);
-
-
 }
 
 function virarCartas(carta) {
     if (bloqueiaCartas === true){
         return false
     }
+
     carta.querySelector(".card__front").classList.toggle("turn__front")
     carta.querySelector(".card__back").classList.toggle("turn__back")
+    carta.classList.add("fixed")
     
     if(!primeiraCarta){
         primeiraCarta = carta 
@@ -74,7 +75,7 @@ function virarCartas(carta) {
 function correspondencia(){
     bloqueiaCartas = true
     let ehCorrespondente = primeiraCarta.dataset.card === segundaCarta.dataset.card
-    //porque multipla atribuicao nao funciona? tipo [primeiraCarta,segundaCarta,bloqueiaCartas] = [null, null,false]
+    
     if (!ehCorrespondente){
         setTimeout(()=>{
             desvirar(primeiraCarta)
@@ -82,11 +83,9 @@ function correspondencia(){
             primeiraCarta = null
             segundaCarta = null
             bloqueiaCartas= false
-        }, 2000)  
+        }, 1000)  
         jogadas += 2
     }else{
-        primeiraCarta.classList.add("fixed")
-        segundaCarta.classList.add("fixed")
         primeiraCarta = null
         segundaCarta = null
         bloqueiaCartas = false
@@ -97,16 +96,18 @@ function correspondencia(){
 }
 
 function desvirar(carta){
+    carta.classList.remove('fixed')
     const primeiraFrente = carta.querySelector(".card__front")
     primeiraFrente.classList.remove("turn__front")
-
+    
     const primeiraVerso = carta.querySelector(".card__back")
     primeiraVerso.classList.remove("turn__back")
 }
 
 function conferirSeGanhou(){
     if (acertos === 0){
-        setTimeout( () => {alert(`Você ganhou em ${jogadas} jogadas!`)}, 1000)
+        tempoGanhou = relogio.innerText
+        setTimeout( () => {alert(`Você ganhou em ${jogadas} jogadas e ${tempoGanhou} segundos!`)}, 1000)
         setTimeout( () => 
             {let jogarNovamente = prompt('Quer jogar novamente? Se quiser digite sim')
             if (jogarNovamente.toUpperCase() === 'SIM'){

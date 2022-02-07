@@ -11,7 +11,6 @@ header{
 }
 
 header strong{
-    
     font-family: 'Roboto', sans-serif;
     font-size: 56px;
     color: #75B79E;
@@ -40,7 +39,6 @@ main{
     margin-top: 150px;
 }
 
-/*o efeito virar vai na carta?? eu fui na linha de virar front e back e os efeitos ficaram zoados */
 .card{
     width: 117px;
     height: 146px;
@@ -147,7 +145,6 @@ main{
     position: fixed;
     top: 95px;
     right: 22px;
-
 }
 
 @media (max-width: 565px){
