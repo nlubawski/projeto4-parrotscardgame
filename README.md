@@ -2,7 +2,7 @@
 
 Site: https://nlubawski.github.io/projeto4-parrotscardgame/
 
-![parrot](https://user-images.githubusercontent.com/73800701/152857175-e95274be-8db7-48a4-9cd8-20e0ec9caa89.png)
+![parrot](https://user-images.githubusercontent.com/73800701/155322081-5784859c-3895-47eb-8cec-88961754c2d0.gif)
 
 # Requisitos
 
